@@ -1,4 +1,4 @@
-package com.github.qczone.switch2cursor.settings
+package com.github.qczone.switch2void.settings
 
 import com.intellij.openapi.options.Configurable
 import javax.swing.JComponent
@@ -10,7 +10,7 @@ import com.intellij.util.ui.FormBuilder
 class AppSettingsConfigurable : Configurable {
     private var mySettingsComponent: AppSettingsComponent? = null
 
-    override fun getDisplayName(): String = "Open In Cursor"
+    override fun getDisplayName(): String = "Open In Void"
 
     override fun createComponent(): JComponent {
         mySettingsComponent = AppSettingsComponent()
@@ -19,17 +19,17 @@ class AppSettingsConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val settings = AppSettingsState.getInstance()
-        return mySettingsComponent!!.cursorPath != settings.cursorPath
+        return mySettingsComponent!!.voidPath != settings.voidPath
     }
 
     override fun apply() {
         val settings = AppSettingsState.getInstance()
-        settings.cursorPath = mySettingsComponent!!.cursorPath
+        settings.voidPath = mySettingsComponent!!.voidPath
     }
 
     override fun reset() {
         val settings = AppSettingsState.getInstance()
-        mySettingsComponent!!.cursorPath = settings.cursorPath
+        mySettingsComponent!!.voidPath = settings.voidPath
     }
 
     override fun disposeUIResources() {
@@ -39,18 +39,18 @@ class AppSettingsConfigurable : Configurable {
 
 class AppSettingsComponent {
     val panel: JPanel
-    private val cursorPathText = JTextField()
+    private val voidPathText = JTextField()
 
     init {
         panel = FormBuilder.createFormBuilder()
-            .addLabeledComponent(JBLabel("Cursor Path: "), cursorPathText, 1, false)
+            .addLabeledComponent(JBLabel("Void Path: "), voidPathText, 1, false)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
 
-    var cursorPath: String
-        get() = cursorPathText.text
+    var voidPath: String
+        get() = voidPathText.text
         set(value) {
-            cursorPathText.text = value
+            voidPathText.text = value
         }
-} 
+}

@@ -1,7 +1,7 @@
-package com.github.qczone.switch2cursor.actions
+package com.github.qczone.switch2void.actions
 
-import com.github.qczone.switch2cursor.settings.AppSettingsState
-import com.github.qczone.switch2cursor.utils.WindowUtils
+import com.github.qczone.switch2void.settings.AppSettingsState
+import com.github.qczone.switch2void.utils.WindowUtils
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -11,8 +11,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 
-class OpenFileInCursorAction : AnAction() {
-    private val logger = Logger.getInstance(OpenFileInCursorAction::class.java)
+class OpenFileInVoidAction : AnAction() {
+    private val logger = Logger.getInstance(OpenFileInVoidAction::class.java)
 
     override fun getActionUpdateThread(): ActionUpdateThread {
         return ActionUpdateThread.BGT
@@ -29,17 +29,17 @@ class OpenFileInCursorAction : AnAction() {
         
         val filePath = virtualFile.path
         val settings = AppSettingsState.getInstance()
-        val cursorPath = settings.cursorPath
+        val voidPath = settings.voidPath
         
         val command = when {
             System.getProperty("os.name").lowercase().contains("mac") -> {
-                arrayOf("open", "-a", "$cursorPath", "cursor://file$filePath:$line:$column")
+                arrayOf("open", "-a", "$voidPath", "$filePath:$line:$column")
             }
             System.getProperty("os.name").lowercase().contains("windows") -> {
-                arrayOf("cmd", "/c", "$cursorPath", "--goto", "$filePath:$line:$column")
+                arrayOf("cmd", "/c", "$voidPath", "--goto", "$filePath:$line:$column")
             }
             else -> {
-                arrayOf(cursorPath, "--goto", "$filePath:$line:$column")
+                arrayOf(voidPath, "--goto", "$filePath:$line:$column")
             }
         }
         
@@ -47,16 +47,16 @@ class OpenFileInCursorAction : AnAction() {
             logger.info("Executing command: ${command.joinToString(" ")}")
             ProcessBuilder(*command).start()
         } catch (ex: Exception) {
-            logger.error("Failed to execute cursor command: ${ex.message}", ex)
+            logger.error("Failed to execute void command: ${ex.message}", ex)
             com.intellij.openapi.ui.Messages.showErrorDialog(
                 project,
                 """
                 ${ex.message}
                 
                 Please check:
-                1. Cursor path is correctly configured in Settings > Tools > Switch2Cursor
-                2. Cursor is properly installed on your system
-                3. The configured path points to a valid Cursor executable
+                1. Void path is correctly configured in Settings > Tools > Switch2Void
+                2. Void is properly installed on your system
+                3. The configured path points to a valid Void executable
                 """.trimIndent(),
                 "Error"
             )
@@ -73,4 +73,4 @@ class OpenFileInCursorAction : AnAction() {
                                            virtualFile != null && 
                                            !virtualFile.isDirectory
     }
-} 
+}

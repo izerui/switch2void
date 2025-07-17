@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.qczone"
-version = "1.0.3"
+version = "2.0.0"
 
 
 repositories {
@@ -17,7 +17,7 @@ repositories {
 intellij {
     version.set("2022.3")
     type.set("IC") // Target IDE Platform
-    pluginName.set("Switch2Cursor")
+    pluginName.set("Switch2Void")
     updateSinceUntilBuild.set(true)
     sameSinceUntilBuild.set(false)
 
