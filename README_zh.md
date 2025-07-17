@@ -5,8 +5,8 @@
 > 💡 推荐在 Void 中配合 [Switch2IDEA](https://github.com/qczone/switch2idea) 使用
 
 
-[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/26309-switch2void?label=JetBrains%20Marketplace&style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/26309-switch2void)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/26309-switch2void?style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/26309-switch2void)
+[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/27932-switch2void?label=JetBrains%20Marketplace&style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/27932-switch2void)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/27932-switch2void?style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/27932-switch2void)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
 ## 🔍 项目简介
@@ -43,7 +43,7 @@
 4. 点击 `OK` 生效
 
 ### 方式二：本地安装
-1. 从 [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/26309-switch2void) 下载最新版插件包
+1. 从 [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27932-switch2void) 下载最新版插件包
 2. IDE → `Settings` → `Plugins` → `⚙️`→ `Install Plugin from Disk...`
 3. 选择下载的插件包
 4. 点击 `OK` 生效

@@ -5,8 +5,8 @@
 > 💡 Recommended to use with [Switch2IDEA](https://github.com/qczone/switch2idea) in Void
 
 
-[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/26309-switch2void?label=JetBrains%20Marketplace&style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/26309-switch2void)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/26309-switch2void?style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/26309-switch2void)
+[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/27932-switch2void?label=JetBrains%20Marketplace&style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/27932-switch2void)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/27932-switch2void?style=for-the-badge&logo=intellij-idea)](https://plugins.jetbrains.com/plugin/27932-switch2void)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
 ## 🔍 Introduction
@@ -43,7 +43,7 @@ A JetBrains IDE plugin that enhances development efficiency by enabling seamless
 4. Click `OK` to apply changes
 
 ### Method 2: Local Installation
-1. Download the latest plugin package from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/26309-switch2void)
+1. Download the latest plugin package from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27932-switch2void)
 2. IDE → `Settings` → `Plugins` → `⚙️`→ `Install Plugin from Disk...`
 3. Select the downloaded plugin package
 4. Click `OK` to apply changes
