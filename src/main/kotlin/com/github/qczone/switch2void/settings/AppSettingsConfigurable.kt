@@ -44,6 +44,7 @@ class AppSettingsComponent {
     init {
         panel = FormBuilder.createFormBuilder()
             .addLabeledComponent(JBLabel("Void Path: "), voidPathText, 1, false)
+            .addLabeledComponent(JBLabel(""), JBLabel("Default: 'void' (if Void is in PATH)"), 1, false)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }

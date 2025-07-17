@@ -31,9 +31,35 @@ class OpenFileInVoidAction : AnAction() {
         val settings = AppSettingsState.getInstance()
         val voidPath = settings.voidPath
         
+        // Check if Void path is configured
+        if (voidPath.isBlank()) {
+            com.intellij.openapi.ui.Messages.showErrorDialog(
+                project,
+                """
+                Void editor path is not configured.
+                
+                Please:
+                1. Go to Settings > Tools > Switch2Void
+                2. Set the path to your preferred editor executable
+                
+                Examples:
+                • For VSCode: /usr/local/bin/code
+                • For Sublime Text: /usr/local/bin/subl
+                • For custom editor: /path/to/your/editor
+                """.trimIndent(),
+                "Void Path Not Configured"
+            )
+            return
+        }
+        
         val command = when {
             System.getProperty("os.name").lowercase().contains("mac") -> {
-                arrayOf("open", "-a", "$voidPath", "$filePath:$line:$column")
+                if (voidPath == "void" || voidPath.endsWith("Void.app")) {
+                    // Use Void's custom URL scheme with line and column
+                    arrayOf("open", "void://file$filePath:$line:$column")
+                } else {
+                    arrayOf(voidPath, "--goto", "$filePath:$line:$column")
+                }
             }
             System.getProperty("os.name").lowercase().contains("windows") -> {
                 arrayOf("cmd", "/c", "$voidPath", "--goto", "$filePath:$line:$column")
@@ -55,10 +81,12 @@ class OpenFileInVoidAction : AnAction() {
                 
                 Please check:
                 1. Void path is correctly configured in Settings > Tools > Switch2Void
-                2. Void is properly installed on your system
-                3. The configured path points to a valid Void executable
+                2. The editor is properly installed on your system
+                3. The configured path points to a valid executable
+                
+                Current configured path: "$voidPath"
                 """.trimIndent(),
-                "Error"
+                "Error Launching Editor"
             )
         }
 
