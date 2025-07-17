@@ -81,7 +81,7 @@ A JetBrains IDE plugin that enhances development efficiency by enabling seamless
 ### Build Project
 ```bash
 # Clone repository
-git clone https://github.com/qczone/switch2void.git
+git clone https://github.com/izerui/switch2void.git
 
 # Build plugin
 cd switch2void
